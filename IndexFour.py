@@ -16,6 +16,7 @@ def optimal_weight(W, w):
 
     return weights[-1][-1]
 
-print(optimal_weight(10, [1, 4, 8]))
+print(optimal_weight(16, [3, 4, 8]))
 
 
+ 

@@ -1,5 +1,11 @@
-import operator
-import sys
-a = {"add": operator.add, "sub": operator.sub,
-     "mul": operator.mul, "truediv": operator.truediv}
-print(a[sys.argv[1]]((int)(sys.argv[2]), (int)(sys.argv[3])))
+from operator import add, sub, mul, truediv
+from sys import argv
+
+if len(argv) == 4:
+    dictionary = {'add': add, 'sub': sub, 'mul': mul, 'truevid': truediv}
+    try:
+        print(dictionary[argv[2]](int(argv[1]), int(argv[3])))
+    except:
+        print("error")
+else:
+    print("not enough arguments")

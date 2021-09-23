@@ -1,8 +1,12 @@
-import operator
-import sys
-a = {'+': operator.add, '-': operator.sub,
-     '*': operator.mul, '/': operator.truediv}
+from operator import add, sub, mul, truediv
+from sys import argv
 
 
-print(a[sys.argv[2]]((int)(sys.argv[1]),
-                     (int)(sys.argv[3])))
+if len(argv) == 4:
+    dictionary = {'+': add, '-': sub, '*': mul, '/': truediv} 
+    try:
+        print(dictionary[argv[2]](int(argv[1]), int(argv[3])))
+    except:
+        print("error")
+else:
+    print("not enough arguments")

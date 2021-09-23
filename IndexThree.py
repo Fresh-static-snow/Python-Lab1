@@ -1,23 +1,23 @@
-from sys import argv
+formul = input("input = ")
+formul = formul.replace(" ", "")
+length = len(formul) - 1
 
+if formul == "":
+    print("error! found no expression")
+    exit(1)
 
-def isExpression(text):
-    for number in text.replace("-", "+").split("+"):
-        if not number.isdigit():
-            return 0
-    return text[0].isdigit() and text[-1].isdigit()
+elif formul[0].isdigit() and formul[length].isdigit():
+    while length >= 0:
+        if formul[length].isdigit():
+            length -= 1
+        elif formul[length] == '+' or formul[length] == '-':
+            if formul[length + 1] == '+' or formul[length + 1] == '-':
+                print("error in expression!")
+                exit(1)
+            length -= 1
+else:
+    print("error in expression!")
+    exit(1)
 
-
-print("(True,(0)".format(eval(argv[1])) if isExpression(argv[1])
-     else "(False,None)")
-
-print(isExpression(1+2+4-2+5-1))
-print(isExpression(user_input='123'))
-print(isExpression(user_input='hello+12'))
-print(isExpression(user_input='2++12--3'))
-print(isExpression(user_input=''))
-# 1. result = (True, 9)
-# 2. result = (True, 123)
-# 3. result = (False, None)
-# 4. result = (False, None)
-# 5. result = (False, None)
+result = eval(formul)
+print(result)
